@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     CMD=new GtCommandInterface(this,udp);
     CMD->echo=true;
     connect(CMD,&GtCommandInterface::recv_cmd,this,&MainWindow::recv_cmd);
+    connect(CMD,&GtCommandInterface::recv_accept,this,&MainWindow::recv_cmd);
 
     QTableWidgetItem *newItem = new QTableWidgetItem;
     newItem->setText("DEST");
